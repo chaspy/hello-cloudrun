@@ -11,10 +11,7 @@ on:
 
 env:
   PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
-  GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
   GCP_WIF_ID: ${{ secrets.GCP_WIF_ID }}
-  SERVICE: hello-cloud-run
-  REGION: asia-northeast1
   IMAGE: asia-northeast1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/hello-cloudrun/hello-cloudrun:${{ github.sha }}
 
 jobs:
