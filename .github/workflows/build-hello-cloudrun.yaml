@@ -5,6 +5,9 @@ on:
     types: [opened, synchronize, reopened, edited]
     branches:
       - 'main'
+  push:
+    branches:
+      - 'main'
 
 env:
   PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
