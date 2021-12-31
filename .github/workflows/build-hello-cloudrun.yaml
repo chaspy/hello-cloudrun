@@ -14,7 +14,7 @@ env:
   GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
   SERVICE: hello-cloud-run
   REGION: asia-northeast1
-  IMAGE: gcr.io/${{ secrets.GCP_PROJECT_ID }}/hello-cloudrun:${{ github.sha }}
+  IMAGE: asia-northeast1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/hello-cloudrun/hello-cloud-run:${{ github.sha }}
 
 jobs:
   setup:
