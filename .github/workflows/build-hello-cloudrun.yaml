@@ -36,11 +36,17 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-go-
 
-      - name: Setup Cloud SDK
-        uses: google-github-actions/setup-gcloud@v0.3.0
+      - id: auth
+        uses: google-github-actions/auth@v0.3.0
         with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
           project_id: ${{ env.PROJECT_ID }}
-          service_account_key: ${{ secrets.GCP_SA_KEY }}
+  
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v0.3.0
+  
+      - name: Use gcloud CLI
+        run: gcloud info
 
       - name: Authorize Docker for Artifact Registry
         run: gcloud auth configure-docker asia-docker.pkg.dev
