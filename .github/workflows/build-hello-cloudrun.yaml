@@ -52,6 +52,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: build
-        run: make build
+        run: docker build . -t ${{ env.IMAGE }}
       - name: push
         run: docker push ${{ env.IMAGE }}
