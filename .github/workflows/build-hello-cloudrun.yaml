@@ -52,7 +52,7 @@ jobs:
         run: gcloud info
 
       - name: Authorize Docker for Artifact Registry
-        run: gcloud auth configure-docker asia-docker.pkg.dev
+        run: gcloud auth configure-docker asia-northeast1-docker.pkg.dev
 
       - name: build
         run: docker build . -t ${{ env.IMAGE }}
