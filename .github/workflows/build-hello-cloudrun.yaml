@@ -17,7 +17,7 @@ env:
   IMAGE: asia-northeast1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/hello-cloudrun/hello-cloudrun:${{ github.sha }}
 
 jobs:
-  setup:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: set up
@@ -45,12 +45,8 @@ jobs:
       - name: Authorize Docker for Artifact Registry
         run: gcloud auth configure-docker asia-docker.pkg.dev
 
-  build:
-    needs: setup
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
       - name: build
         run: docker build . -t ${{ env.IMAGE }}
+
       - name: push
         run: docker push ${{ env.IMAGE }}
