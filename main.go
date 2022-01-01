@@ -6,7 +6,7 @@ import (
 		)
 
 		func handler(w http.ResponseWriter, r *http.Request) {
-			fmt.Fprintf(w, "Hello, Cloud Run, canary")
+			fmt.Fprintf(w, "Hello, Cloud Run, preview")
 			}
 
 			func main() {
